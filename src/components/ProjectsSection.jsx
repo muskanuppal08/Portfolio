@@ -32,7 +32,7 @@ export default function ProjectsSection({ onOpenProject }) {
       id: 'carrental',
       category: 'mern',
       title: 'Car Rental MERN Platform',
-      date: 'Dec 2025 - Dec 2026',
+      date: 'Dec 2025',
       badge: 'React • Node • Express • Mongo',
       pillClass: 'bg-purple-100 text-purple-800',
       desc: 'Full-stack MERN car rental platform featuring role-based User and Admin dashboards, live fleet inventory management, and flexible booking options.',

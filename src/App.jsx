@@ -46,7 +46,7 @@ export default function App() {
     carrental: {
       title: "Car Rental MERN Platform",
       subtitle: "Full-Stack Vehicle Rental & Fleet Management System",
-      date: "Sep 2025 - Dec 2026",
+      date: "Dec 2025",
       badge: "React.js • Node.js • Express.js • MongoDB",
       github: "https://github.com/muskanuppal08",
       impact: "65% Operations efficiency improvement",
