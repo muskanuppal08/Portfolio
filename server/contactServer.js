@@ -1,17 +1,22 @@
 /**
- * Real-Life Contact Form Backend Server (Node.js & Express)
+ * Real-Life Contact Form Backend Server (ES Modules Version)
  * Location: Documents/Portfolio/server/contactServer.js
- * 
- * Features:
- * - Listens for contact form submissions from the portfolio UI.
- * - Stores received messages in a persistent JSON database (`server/messages.json`).
- * - Can optionally post real-life notifications / Gists directly to GitHub API!
  */
 
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const cors = require('cors');
+import express from 'express';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import cors from 'cors';
+import nodemailer from 'nodemailer';
+
+// Helper to handle __dirname in ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+const MESSAGES_FILE = path.join(__dirname, 'messages.json');
 
 // Load environment variables manually from .env if present
 const envPath = path.join(__dirname, '.env');
@@ -29,10 +34,6 @@ if (fs.existsSync(envPath)) {
     }
   });
 }
-
-const app = express();
-const PORT = process.env.PORT || 5000;
-const MESSAGES_FILE = path.join(__dirname, 'messages.json');
 
 app.use(cors());
 app.use(express.json());
@@ -88,7 +89,6 @@ app.post('/api/contact', async (req, res) => {
   // 3. Send Real-Life Email notification using Nodemailer
   if (process.env.SMTP_EMAIL && process.env.SMTP_PASSWORD) {
     try {
-      const nodemailer = require('nodemailer');
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -110,9 +110,7 @@ app.post('/api/contact', async (req, res) => {
       console.log('❌ Email dispatch failed:', emailErr.message);
     }
   } else {
-    console.log('ℹ️ SMTP credentials not found. To receive real-life emails on Gmail, set env variables:');
-    console.log('   export SMTP_EMAIL="your-email@gmail.com"');
-    console.log('   export SMTP_PASSWORD="your-gmail-app-password"');
+    console.log('ℹ️ SMTP credentials not found in env/dotenv.');
   }
 
   // Optional: Post to GitHub Gist if GITHUB_TOKEN is present
