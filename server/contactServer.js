@@ -13,6 +13,23 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 
+// Load environment variables manually from .env if present
+const envPath = path.join(__dirname, '.env');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf8');
+  envContent.split('\n').forEach(line => {
+    const parts = line.split('=');
+    if (parts.length >= 2) {
+      const key = parts[0].trim();
+      let val = parts.slice(1).join('=').trim();
+      if (val.startsWith('"') && val.endsWith('"')) {
+        val = val.substring(1, val.length - 1);
+      }
+      process.env[key] = val;
+    }
+  });
+}
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MESSAGES_FILE = path.join(__dirname, 'messages.json');
