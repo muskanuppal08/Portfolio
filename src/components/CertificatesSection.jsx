@@ -97,7 +97,17 @@ export default function CertificatesSection() {
             </div>
             <h3 className="font-display font-bold text-lg text-purple-950 mb-2">{c.title}</h3>
             <p className="text-xs text-purple-900/80 mb-4 leading-relaxed">{c.desc}</p>
-            <div className="text-xs font-bold text-purple-700">Issuer: {c.issuer}</div>
+            <div className="flex items-center justify-between mt-4 pt-4 border-t border-purple-100/60">
+              <span className="text-xs font-bold text-purple-700">Issuer: {c.issuer}</span>
+              <a
+                href="https://drive.google.com/drive/folders/1KSsouD3JdV48q32g9Lw8wfs_Iyy7W80M?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-xl bg-purple-100 hover:bg-purple-200 text-purple-900 font-bold text-xs transition-all flex items-center gap-1 shadow-sm"
+              >
+                View File 🔍
+              </a>
+            </div>
           </div>
         ))}
       </div>

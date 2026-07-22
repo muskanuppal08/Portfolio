@@ -168,7 +168,16 @@ export default function App() {
       <footer className="w-full py-8 text-center text-xs font-semibold text-purple-900/70 border-t border-purple-100 bg-white/40">
         <div className="max-w-[1600px] mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span>© 2026 Muskan Uppal — Designed with SOLID Component Architecture</span>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="https://drive.google.com/drive/folders/1KSsouD3JdV48q32g9Lw8wfs_Iyy7W80M?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-xl bg-purple-600/10 hover:bg-purple-600/20 text-purple-800 font-bold transition-all shadow-sm flex items-center gap-1"
+            >
+              Verify Credentials Folder 📁
+            </a>
+            <span>•</span>
             <a href="https://github.com/muskanuppal08" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
             <span>•</span>
             <a href="https://www.linkedin.com/in/muskanuppal08/" target="_blank" rel="noopener noreferrer" className="hover:underline">LinkedIn</a>
