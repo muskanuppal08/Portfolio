@@ -68,6 +68,36 @@ app.post('/api/contact', async (req, res) => {
   console.log(`Message: ${message}`);
   console.log('--------------------------------------------------');
 
+  // 3. Send Real-Life Email notification using Nodemailer
+  if (process.env.SMTP_EMAIL && process.env.SMTP_PASSWORD) {
+    try {
+      const nodemailer = require('nodemailer');
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.SMTP_EMAIL,
+          pass: process.env.SMTP_PASSWORD // App Password if Gmail
+        }
+      });
+
+      const mailOptions = {
+        from: `"${name}" <${email}>`,
+        to: 'uppalmuskan268@gmail.com',
+        subject: `📩 Portfolio: ${contactData.subject}`,
+        text: `You received a new message from your portfolio contact form:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      };
+
+      await transporter.sendMail(mailOptions);
+      console.log('✅ Real-life email dispatch completed successfully to uppalmuskan268@gmail.com!');
+    } catch (emailErr) {
+      console.log('❌ Email dispatch failed:', emailErr.message);
+    }
+  } else {
+    console.log('ℹ️ SMTP credentials not found. To receive real-life emails on Gmail, set env variables:');
+    console.log('   export SMTP_EMAIL="your-email@gmail.com"');
+    console.log('   export SMTP_PASSWORD="your-gmail-app-password"');
+  }
+
   // Optional: Post to GitHub Gist if GITHUB_TOKEN is present
   if (process.env.GITHUB_TOKEN) {
     try {
