@@ -15,9 +15,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const MESSAGES_FILE = path.join(__dirname, 'messages.json');
-
 // Load environment variables manually from .env if present
 const envPath = path.join(__dirname, '.env');
 if (fs.existsSync(envPath)) {
@@ -34,6 +31,9 @@ if (fs.existsSync(envPath)) {
     }
   });
 }
+
+const PORT = process.env.PORT || 5000;
+const MESSAGES_FILE = path.join(__dirname, 'messages.json');
 
 app.use(cors());
 app.use(express.json());
