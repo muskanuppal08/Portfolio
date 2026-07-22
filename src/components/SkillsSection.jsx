@@ -29,9 +29,9 @@ export default function SkillsSection() {
         {/* Frameworks */}
         <div className="glass-card rounded-3xl p-6 bg-white/75 backdrop-blur-xl border border-purple-100 shadow-md">
           <div className="w-12 h-12 rounded-2xl bg-pink-100 text-pink-800 flex items-center justify-center font-bold text-xl mb-4">⚡</div>
-          <h3 className="font-display font-bold text-xl text-purple-950 mb-4">Frameworks</h3>
+          <h3 className="font-display font-bold text-xl text-purple-950 mb-4">Frameworks & UI</h3>
           <div className="flex flex-wrap gap-2">
-            {['React.js', 'Node.js', 'Express.js', 'Laravel', 'Tailwind CSS'].map((s) => (
+            {['React.js', 'Node.js', 'Express.js', 'Laravel', 'Tailwind CSS', 'HTML5', 'CSS3'].map((s) => (
               <span key={s} className="px-3 py-1.5 rounded-xl bg-pink-100/80 text-pink-900 border border-pink-200 font-semibold text-xs">{s}</span>
             ))}
           </div>
