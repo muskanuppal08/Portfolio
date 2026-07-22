@@ -14,7 +14,7 @@ export default function HeaderNav({ activeTab, onTabChange, projectCount = 5, ce
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-xl border-b border-purple-100 transition-all duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
         
         {/* Brand Logo */}
         <button onClick={() => onTabChange('overview')} className="flex items-center gap-3 group text-left">
@@ -23,9 +23,10 @@ export default function HeaderNav({ activeTab, onTabChange, projectCount = 5, ce
               MU
             </div>
           </div>
-          <div>
-            <span className="font-display font-bold text-xl text-purple-950 tracking-tight block">Muskan Uppal</span>
-            <span className="text-xs font-medium text-purple-600 block -mt-1">Full-Stack Engineer</span>
+          <div className="flex flex-col lg:flex-row lg:items-center gap-0 lg:gap-3">
+            <span className="font-display font-bold text-xl text-purple-950 tracking-tight whitespace-nowrap">Muskan Uppal</span>
+            <span className="hidden lg:inline-block w-[1px] h-4 bg-purple-200"></span>
+            <span className="text-xs font-semibold text-purple-600 whitespace-nowrap">Full-Stack Engineer</span>
           </div>
         </button>
 
