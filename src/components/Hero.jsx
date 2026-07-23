@@ -40,6 +40,14 @@ export default function Hero({ onTabChange, onOpenProject }) {
               View Verified Certificates
               <svg className="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </button>
+
+            <a
+              href="/Muskancv.pdf"
+              download="Muskan_Uppal_Resume.pdf"
+              className="px-7 py-4 rounded-2xl bg-purple-100/80 border border-purple-200 text-purple-955 font-bold text-base shadow-sm hover:bg-purple-200 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2"
+            >
+              Download Resume 📥
+            </a>
           </div>
         </div>
 
